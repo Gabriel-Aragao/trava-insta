@@ -46,21 +46,21 @@ class TravaInsta:
         errors = 0
         while(True):
             for j in range(5):
-            #try:                        
-                self.wait_a_min_or.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="react-root"]/section/main/div/div[1]/article/div[3]/section[3]/div/form/textarea')))
-                self.driver.find_element(By.XPATH, '//*[@id="react-root"]/section/main/div/div[1]/article/div[3]/section[3]/div/form/textarea').click()
-                self.driver.find_element(By.XPATH, '//*[@id="react-root"]/section/main/div/div[1]/article/div[3]/section[3]/div/form/textarea').send_keys(self.get_comment())
-                self.wait_a_min_or.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="react-root"]/section/main/div/div[1]/article/div[3]/section[3]/div/form/button[2]')))
-                self.driver.find_element(By.XPATH, '//*[@id="react-root"]/section/main/div/div[1]/article/div[3]/section[3]/div/form/button[2]').click()
-                count+=1
-                print(count)
-            #except:
-                print("Pause for comment limit")
-                sleep(600)
-                self.driver.refresh()
-                errors+=1
-                if(errors>2):
-                    break
+                try:                        
+                    self.wait_a_min_or.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="react-root"]/section/main/div/div[1]/article/div[3]/section[3]/div/form/textarea')))
+                    self.driver.find_element(By.XPATH, '//*[@id="react-root"]/section/main/div/div[1]/article/div[3]/section[3]/div/form/textarea').click()
+                    self.driver.find_element(By.XPATH, '//*[@id="react-root"]/section/main/div/div[1]/article/div[3]/section[3]/div/form/textarea').send_keys(self.get_comment())
+                    self.wait_a_min_or.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="react-root"]/section/main/div/div[1]/article/div[3]/section[3]/div/form/button[2]')))
+                    self.driver.find_element(By.XPATH, '//*[@id="react-root"]/section/main/div/div[1]/article/div[3]/section[3]/div/form/button[2]').click()
+                    count+=1
+                    print(count)
+                except:
+                    print("Pause for comment limit")
+                    sleep(600)
+                    self.driver.refresh()
+                    errors+=1
+                    if(errors>2):
+                        break
             if(errors>2):
                     print("Stoped by dially comment limit")
                     break
